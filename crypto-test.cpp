@@ -1,14 +1,19 @@
+//*
+//
+// Name: Sean Oreta
+// CWID: 886349166
+//
+
 #include <iostream>
 #include <fstream>
+#include "cipher.cpp"
 
 using namespace std;
-string encrypt(string message);
-string decrypt(string message);
 
 int main() {
 	fstream file;
 	string filename;
-	string input, output;
+	string input;
 
         cout << "Initializing Cryptography Test..." << endl << "hi" << endl;
 
@@ -22,39 +27,25 @@ int main() {
                 return 1;
 	}
 
+	// Write contents of file to string
 	string line;
-
 	while (getline(file, line)) {
 		input += line + "\n";
         }
 
 	cout << input << endl;
+	Cipher c(input);
 
-	string encrypted = encrypt(input);
+	string encrypted = c.encrypt();
         cout << "Your encrypted message is: " << encrypted << endl;
 
-	string decrypted = decrypt(encrypted);
+	string decrypted = c.decrypt();
 	cout << "Your decrypted message is: " << decrypted << endl;
 
 	if (encrypted == decrypted) {
                 cout << "Success!" << endl;
         }
 
+	file.close();
         return 0;
-}
-
-string encrypt(string message) {
-	string encryption = message;
-	ofstream file("encrypted.txt");
-	cout << "I will encrypt the message" << endl;
-	file << encryption;
-	return encryption;
-}
-
-string decrypt(string message) {
-	string decryption = message;
-	ofstream file("decrypted.txt");
-        cout << "I will decrypt the message" << endl;
-	file << decryption;
-        return decryption;
 }
