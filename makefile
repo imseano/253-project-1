@@ -11,7 +11,7 @@ TARGET = ./main
 TARGET_DEL = main
 
 # Source files
-SRCS = crypto-test.cpp
+SRCS = crypto-test.cpp quaternion.cpp
 
 # Object files
 OBJS = $(SRCS:.cpp=.o)
