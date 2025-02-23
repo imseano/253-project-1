@@ -35,6 +35,7 @@ int main() {
 
 	cout << input << endl;
 	Cipher c(input);
+	c.generateCubes(input);
 
 	string encrypted = c.encrypt();
         cout << "Your encrypted message is: " << encrypted << endl;
