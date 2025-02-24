@@ -14,7 +14,7 @@ Quaternion::Quaternion() {
         this->w = 0;
 }
 
-Quaternion& Quaternion::operator*(Quaternion& q) {
+Quaternion Quaternion::operator*(const Quaternion& q) {
         Quaternion& r = *this;
 	Quaternion temp;
 	temp.x = r.x * q.w + r.y * q.z - r.z * q.y + r.w * q.x;
@@ -22,11 +22,10 @@ Quaternion& Quaternion::operator*(Quaternion& q) {
 	temp.z = r.x * q.y - r.y * q.x + r.z * q.w + r.w * q.z;
 	temp.w = -r.x * q.x - r.y * q.y - r.z * q.z + r.w * q.w;
 
-	r = temp;
-        return *this;
+	return temp;
 }
 
-Quaternion& Quaternion::operator*(double s) {
+Quaternion Quaternion::operator*(const double s) {
         Quaternion& r = *this;
         r.x = r.x * s;
         r.y = r.y * s;
@@ -35,7 +34,7 @@ Quaternion& Quaternion::operator*(double s) {
         return *this;
 }
 
-Quaternion& Quaternion::operator+(Quaternion& q) {
+Quaternion Quaternion::operator+(const Quaternion& q) {
         Quaternion& r = *this;
 	r.x = r.x + q.x;
 	r.y = r.y + q.y;
