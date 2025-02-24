@@ -1,4 +1,6 @@
 *.o
 main
-encrypted.txt
-decrypted.txt
+cubecipher
+*.txt
+*.odt
+*.pdf

@@ -67,11 +67,6 @@ class Cipher {
 				}
 			}
 		}
-		//printCubes();
-		//Quaternion q = Quaternion(0.707, 0.707, 0, 0);
-		//Quaternion q1 = Quaternion(0, 0, 1, 0);
-		//applyRotation(q);
-		//applyRotation(q1);
 
         }
 
@@ -91,7 +86,7 @@ class Cipher {
 	}
 
 	void applyRotation(Quaternion q) {
-		cout << q.x << " " << q.y << " " << q.z << " " << q.w << " is the rotation" << endl;
+		//cout << q.x << " " << q.y << " " << q.z << " " << q.w << " is the rotation" << endl;
 		vector<Cube> cubesTemp = cubes;
 		Quaternion qInverse = q.inverse();
 		for (int num = 0; num < cubesTemp.size(); num++) {
@@ -233,7 +228,13 @@ class Cipher {
 
 	string encrypt() {
 		string encryption = message;
-		ofstream file("encrypted.txt");
+		string filename;
+		cout << "Please enter a filename to save the encrypted message (or leave empty to use default filename): ";
+		getline(cin, filename);
+		if (filename.size() == 0) {
+			filename = "encrypted.txt";
+		}
+		ofstream file(filename);
 		cout << "I will encrypt the message" << endl;
 		vector<Quaternion> qStack;
 		for (Quaternion q : key) {
@@ -251,6 +252,12 @@ class Cipher {
 
 	string decrypt() {
 		string decryption = message;
+		string filename;
+		cout << "Please enter a filename to save the decrypted message (or leave empty to use default filename): ";
+		getline(cin, filename);
+		if (filename.size() == 0) {
+			filename = "decrypted.txt";
+		}
 		ofstream file("decrypted.txt");
 		cout << "I will decrypt the message" << endl;
 		queue<Quaternion> qQueue;

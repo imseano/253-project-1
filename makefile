@@ -5,10 +5,10 @@ CXX = g++
 CXXFLAGS = -Wall -g
 
 # Target executable
-TARGET = ./main
+TARGET = ./cubecipher
 
 # For deleting the target
-TARGET_DEL = main
+TARGET_DEL = cubecipher
 
 # Source files
 SRCS = 3dCubeCipherMain.cpp quaternion.cpp
