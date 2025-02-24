@@ -9,11 +9,27 @@ using namespace std;
 // Cube size of n x n x n
 #define CUBE_SIZE 3
 
+class Cube {
+	public:
+		vector<vector<vector<char>>> cube;
+                Cube(vector<vector<vector<char>>> cube) {
+                        this->cube = cube;
+                }
+		Cube() {
+			vector<vector<vector<char>>> cube(CUBE_SIZE, vector<vector<char>>(CUBE_SIZE, vector<char>(CUBE_SIZE, ' ')));
+			this->cube = cube;
+		}
+
+		vector<vector<char>>& operator[](int index) {
+                        return cube[index];
+                }
+};
+
 class Cipher {
 	public:
 	string message;
 	vector<Quaternion> key;
-	vector<vector<vector<vector<char>>>> cubes;
+	vector<Cube> cubes;
 
 	Cipher(string message) {
                 this->message = message;
@@ -30,7 +46,7 @@ class Cipher {
 
 		//cout << message << " " << numCubes << endl;
 		for (int num = 0; num < numCubes; num++) {
-			vector<vector<vector<char>>> cube(CUBE_SIZE, vector<vector<char>>(CUBE_SIZE, vector<char>(CUBE_SIZE, ' ')));
+			Cube cube;
 			cubes.push_back(cube);
 			for (int i = 0; i < CUBE_SIZE; i++) {
 				for (int j = 0; j < CUBE_SIZE; j++) {
@@ -63,6 +79,11 @@ class Cipher {
                         }
                 }
 		cout << readStringFromCubes() << endl;
+	}
+
+	void applyRotation(Quaternion q) {
+
+		
 	}
 
 	vector<Quaternion> generateKey() {

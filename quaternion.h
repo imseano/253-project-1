@@ -8,5 +8,7 @@ class Quaternion {
         Quaternion& operator*(Quaternion& q);
         Quaternion& operator*(double s);
 	Quaternion& operator+(Quaternion& q);
+
+	Quaternion inverse();
 	void set(double x, double y, double z, double w);
 };

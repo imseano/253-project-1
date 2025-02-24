@@ -44,6 +44,11 @@ Quaternion& Quaternion::operator+(Quaternion& q) {
         return *this;
 }
 
+Quaternion Quaternion::inverse() {
+        Quaternion r = *this;
+	return Quaternion(-r.x, -r.y, -r.z, r.w);
+}
+
 void Quaternion::set(double x, double y, double z, double w) {
         this->x = x;
         this->y = y;
