@@ -1,1 +1,0 @@
-If you are applying the inverse rotations in the wrong order, it can cause the message to not align properly. In encryption, quaternions are typically applied in sequence (one after the other), and to decrypt, you would need to apply the inverse rotations in the reverse order.
