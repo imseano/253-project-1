@@ -5,14 +5,10 @@
 For my project, I attempted to utilize a concept I learned in my Computer Graphics class to create a symmetric key cipher that uses Quaternions to rotate plaintext, similarly to a rotation cipher but in a 3D plane.
 
 ## Quaternions
-**Quaternions** are a number system extending from complex numbers which are widely used in transforming and rotating 3D objects. This is defined as:
-$$
-q=w+xi+yj+zk
-$$
-where $q$ is the scalar component, $x$, $y$, and $z$ are the vector components, and $i$, $j$, and $k$ are the imaginary units which follow the rule:
-$$
-i^2=j^2=k^2=ijk=-1
-$$
+**Quaternions** are a number system extending from complex numbers which are widely used in transforming and rotating 3D objects. This is defined as:\
+$$q=w+xi+yj+zk$$\
+where $q$ is the scalar component, $x$, $y$, and $z$ are the vector components, and $i$, $j$, and $k$ are the imaginary units which follow the rule:\
+$$i^2=j^2=k^2=ijk=-1$$\
 Being used extensively in applications like Computer Graphics and Robotics, this system forms the basis to scramble text in a 3D space.
 
 
